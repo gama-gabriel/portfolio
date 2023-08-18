@@ -1,0 +1,21 @@
+{
+  "name": "mysql2",
+  "version": "1.0.0",
+  "description": "driver do mysql",
+  "main": "game.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "n",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "n"
+  },
+  "keywords": [
+    "n"
+  ],
+  "dependencies": {
+    "mysql2": "^3.6.0"
+  }
+}
