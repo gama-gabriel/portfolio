@@ -1,0 +1,226 @@
+body
+{
+    margin: 0px;
+    text-align: center;
+}
+.pesquisa
+{
+    justify-content: center;
+    
+}
+#resultados
+{
+    display: flex;
+    flex-direction: column; /* Display list items vertically */
+    align-items: center; /* Center list items horizontally */
+    height: 170px; /* Set height to 100% of the viewport height */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#resultados li
+{   
+    justify-items: center;
+    text-align: center;
+    width: 300px;
+    max-width: 300px;
+    height: auto;
+    padding-inline-start: 0px;
+    margin: 0;
+    padding-block: 5px;
+    border-bottom: solid 1px rgb(172, 172, 172);
+}
+#resultados li:hover
+{
+    background-color: rgb(219, 219, 219);
+    cursor: pointer;
+}
+#busca
+{
+    width: 300px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border: solid 1px;
+    padding-inline-start: 5px;
+    border-radius: 0px;
+    
+}
+.resposta
+{
+    display: grid;
+    width: min-content;
+    margin: auto;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+}
+.um
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 150px;
+    height: 40px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.dois
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.tres
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 50px;
+    height: 40px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.quatro
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.cinco
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.seis
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.sete
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.oito
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.nove
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.dez
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.onze
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 11;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
+.doze
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    width: 60px;
+    height: 40px;
+    grid-column-start: 12;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0px;
+}
