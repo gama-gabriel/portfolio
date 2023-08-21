@@ -16,22 +16,39 @@
         <input type="search" name="busca" id="busca" placeholder="Type a nba player name..." autocomplete="off"><br>
         <ul id="resultados"></ul>
     </div>
-    <div class="resposta">
-        <div id="Nome" class="um"></div>
-        <div id="Team" class="dois"></div>
-        <div id="age" class="tres"></div>
-        <div id="pos" class="quatro"></div>
-        <div id="points" class="cinco"></div>
-        <div id="assists" class="seis"></div> 
-        <div id="rebounds" class="sete"></div> 
-        <div id="fg" class="oito"></div> 
-        <div id="3p" class="nove"></div> 
-        <div id="ft" class="dez"></div> 
-        <div id="stl" class="onze"></div> 
-        <div id="blk" class="doze"></div> 
-        
-    </div>
-
+    <table class="respostas">
+        <tr class="definicoes">
+            <td class="nome">Player name</td>
+            <td class="stats">Team</td>
+            <td class="stats">Age</td>
+            <td class="stats">Position</td>
+            <td class="stats">PTS</td>
+            <td class="stats">AST</td> 
+            <td class="stats">REB</td> 
+            <td class="stats">FG%</td> 
+            <td class="stats">3P%</td> 
+            <td class="stats">FT%</td> 
+            <td class="stats">STL</td> 
+            <td class="stats">BLK</td> 
+        </tr>
+    </table>
+    <table class="respostas" id="resp1">
+        <tr id="linha">
+            <td id="Nome" class="nome"></td>
+            <td id="Team" class="stats"></td>
+            <td id="age" class="stats"></td>
+            <td id="pos" class="stats"></td>
+            <td id="points" class="stats"></td>
+            <td id="assists" class="stats"></td> 
+            <td id="rebounds" class="stats"></td> 
+            <td id="fg" class="stats"></td> 
+            <td id="3p" class="stats"></td> 
+            <td id="ft" class="stats"></td> 
+            <td id="stl" class="stats"></td> 
+            <td id="blk" class="stats"></td> 
+        </tr>
+    </table>
+    <button></button>
 </body>
 <script src="game.js"></script>
 </html>
