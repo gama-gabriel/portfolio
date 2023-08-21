@@ -16,11 +16,14 @@ const resultados = document.getElementById('resultados')
 let itensBuscados = 0
 let tentativas = 1
 
-function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
+async function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
 {
     const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-    <td id="Nome" class="nome">${nome_jogador}</td>
+    tabela = document.getElementById('resp1')
+    linha = document.getElementById('linha')
+    tabela.insertBefore(newRow, linha.parentNode)
+    newRow.innerHTML = 
+    `<td id="Nome" class="nome">${nome_jogador}</td>
     <td id="Team" class="stats">${time_jogador}</td>
     <td id="age" class="stats">${idade_jogador}</td>
     <td id="pos" class="stats">${posicao_jogador}</td>
@@ -31,12 +34,8 @@ function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador,
     <td id="3p" class="stats">${tres_p_jogador}</td> 
     <td id="ft" class="stats">${ft_jogador}</td> 
     <td id="stl" class="stats">${stl_jogador}</td> 
-    <td id="blk" class="stats">${blk_jogador}</td> 
-    
-    `
-    tabela = document.getElementById('resp1')
-    linha = document.getElementById('linha')
-    tabela.insertBefore(newRow, linha.parentNode)
+    <td id="blk" class="stats">${blk_jogador}</td>`
+
 }
 
 barraPesquisa.addEventListener('input', buscar)

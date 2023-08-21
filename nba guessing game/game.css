@@ -1,3 +1,16 @@
+@keyframes fade-in 
+{
+    from 
+    {
+        opacity: 0;
+
+    }
+    to 
+    {
+        opacity: 1;
+    }
+}
+
 body
 {
     margin: 0px;
@@ -47,15 +60,7 @@ body
     border-radius: 0px;
     
 }
-.resposta
-{
-    display: grid;
-    width: min-content;
-    margin: auto;
-    grid-template-columns: auto;
-    align-items: center;
-    justify-items: center;
-}
+
 .nome
 {
     align-items: center;
@@ -83,6 +88,7 @@ body
 {
     display:table;
     margin: auto;
+    animation: fade-in 1s ease-in-out;
 }
 .respostas tr
 {
@@ -93,7 +99,7 @@ body
     align-items: center;
     justify-content: center;
     display: table-cell;
-    /* Add your styles here */
+    animation: fade-in 1s ease-in-out;
 }
 #linha
 {
