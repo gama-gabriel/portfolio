@@ -1,22 +1,75 @@
-let nome = window.document.getElementById('Nome')
-let posicao = window.document.getElementById('pos')
-let pontos = window.document.getElementById('points')
-let idade = document.getElementById('age')
-let rebotes = document.getElementById('rebounds')
-let time = document.getElementById('Team')
-let assistencias = document.getElementById('assists')
-let fg = document.getElementById('fg')
-let tres_p = document.getElementById('3p')
-let ft = document.getElementById('ft')
-let stl = document.getElementById('stl')
-let blk = document.getElementById('blk')
+function jogadorAleatorio(min, max) 
+{
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+async function selResposta(onGoing = false)
+{
+    const n = jogadorAleatorio(1,468)
 
-const barraPesquisa = document.getElementById('busca')
-const resultados = document.getElementById('resultados')
-let itensBuscados = 0
-let tentativas = 1
+    const resposta = await fetch("http://127.0.0.1:5500/players.json")
+    const dados = await resposta.json()
+    if (onGoing == false)
+    {
+        dados.forEach(item => 
+        {
+            if (item.id == n)
+            {
+                escolhido = item
+            }
+        })
+        T_pontos.innerText = escolhido.PPG
+        T_fg.innerText = escolhido["FG%"]
+        T_tres_p.innerText = escolhido["3P%"]
+        T_ft.innerText = escolhido["FT%"]
+    }
 
-async function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
+}
+
+async function darDicas(terminou=false)
+{
+    if (terminou == true || tentativas > 8)
+    {
+        T_nome.innerText = escolhido.PName
+        T_time.innerText = escolhido.Team
+        T_idade.innerText = escolhido.Age
+        T_posicao.innerText = escolhido.POS 
+        T_assistencias.innerText = escolhido.APG
+        T_rebotes.innerText = escolhido.RPG
+        T_ft.innerText = escolhido["FT%"]
+        T_stl.innerText = escolhido.SPG 
+        T_blk.innerText  = escolhido.BPG
+    }
+    else if (tentativas == 2)
+    {
+        T_rebotes.innerText = escolhido.RPG
+    }
+    else if (tentativas == 3)
+    {
+        T_assistencias.innerText = escolhido.APG
+    }
+    else if (tentativas == 4)
+    {
+        T_posicao.innerText = escolhido.POS
+    }
+    else if (tentativas == 5)
+    {
+        T_time.innerText = escolhido.Team
+    }
+    else if (tentativas == 6)
+    {
+        T_idade.innerText = escolhido.Age
+    }
+    else if (tentativas == 7)
+    {
+        T_blk.innerText = escolhido.BPG
+    }
+    else if (tentativas == 8)
+    {
+        T_stl.innerText = escolhido.SPG
+    }
+}
+
+function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
 {
     const newRow = document.createElement('tr');
     tabela = document.getElementById('resp1')
@@ -38,10 +91,9 @@ async function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jo
 
 }
 
-barraPesquisa.addEventListener('input', buscar)
-
 async function buscar()
 {
+    await selResposta(true)
     itensBuscados = 0
     const busca = barraPesquisa.value.toLowerCase()
 
@@ -64,18 +116,59 @@ async function buscar()
             resultados.appendChild(lista)
             itensBuscados++
         }
-      });
+      })
     return dados
- 
 }
 
-function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador) 
+async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador) 
 {
 
     resultados.innerHTML = ''
     barraPesquisa.value = '' 
     criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
-    tentativas++
-      
+    resposta = escolhido.id
+    if (id_jogador == resposta ||  tentativas == 7)
+    {
+        darDicas(true)
+    }
+    else
+    {
+        tentativas++
+        darDicas()
+    }  
     
 }
+
+let nome = window.document.getElementById('Nome')
+let posicao = window.document.getElementById('pos')
+let pontos = window.document.getElementById('points')
+let idade = document.getElementById('age')
+let rebotes = document.getElementById('rebounds')
+let time = document.getElementById('Team')
+let assistencias = document.getElementById('assists')
+let fg = document.getElementById('fg')
+let tres_p = document.getElementById('3p')
+let ft = document.getElementById('ft')
+let stl = document.getElementById('stl')
+let blk = document.getElementById('blk')
+let T_nome = window.document.getElementById('T_Nome')
+let T_posicao = window.document.getElementById('T_pos')
+let T_pontos = window.document.getElementById('T_points')
+let T_idade = document.getElementById('T_age')
+let T_rebotes = document.getElementById('T_rebounds')
+let T_time = document.getElementById('T_Team')
+let T_assistencias = document.getElementById('T_assists')
+let T_fg = document.getElementById('T_fg')
+let T_tres_p = document.getElementById('T_3p')
+let T_ft = document.getElementById('T_ft')
+let T_stl = document.getElementById('T_stl')
+let T_blk = document.getElementById('T_blk')
+let escolhido = []
+
+const barraPesquisa = document.getElementById('busca')
+const resultados = document.getElementById('resultados')
+let itensBuscados = 0
+let tentativas = 1
+
+barraPesquisa.addEventListener('input', buscar)
+
