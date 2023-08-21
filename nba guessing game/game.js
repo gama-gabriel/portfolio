@@ -27,6 +27,7 @@ async function selResposta(onGoing = false)
 
 async function darDicas(terminou=false)
 {
+
     if (terminou == true || tentativas > 8)
     {
         T_nome.innerText = escolhido.PName
@@ -35,6 +36,7 @@ async function darDicas(terminou=false)
         T_posicao.innerText = escolhido.POS 
         T_assistencias.innerText = escolhido.APG
         T_rebotes.innerText = escolhido.RPG
+
         T_ft.innerText = escolhido["FT%"]
         T_stl.innerText = escolhido.SPG 
         T_blk.innerText  = escolhido.BPG
