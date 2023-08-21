@@ -1,16 +1,7 @@
-async function SelecionarDados()
-{
-    const resposta = await fetch("http://127.0.0.1:5500/players.json");
-    const dados = await resposta.json();
-    return dados
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-async function RetornarDados()
-{
-    const dados = await SelecionarDados()
-    dados.forEach(element => 
-    {
-        console.log(element.PName)     
-    });
 
-}
-RetornarDados()
+// Example usage:
+const randomNumber = getRandomInt(1, 468); // Generates a random number between 1 and 10 (inclusive)
+console.log(randomNumber);
