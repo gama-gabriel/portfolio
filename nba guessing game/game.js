@@ -76,20 +76,21 @@ function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador,
     const newRow = document.createElement('tr');
     tabela = document.getElementById('resp1')
     linha = document.getElementById('linha')
+    newRow.setAttribute('id', `linha${tentativas}`)
     tabela.insertBefore(newRow, linha.parentNode)
     newRow.innerHTML = 
-    `<td id="Nome" class="nome">${nome_jogador}</td>
-    <td id="Team" class="stats">${time_jogador}</td>
-    <td id="age" class="stats">${idade_jogador}</td>
-    <td id="pos" class="stats">${posicao_jogador}</td>
-    <td id="points" class="stats">${ppg_jogador}</td>
-    <td id="assists" class="stats">${ast_jogador}</td> 
-    <td id="rebounds" class="stats">${reb_jogador}</td> 
-    <td id="fg" class="stats">${fg_jogador}</td> 
-    <td id="3p" class="stats">${tres_p_jogador}</td> 
-    <td id="ft" class="stats">${ft_jogador}</td> 
-    <td id="stl" class="stats">${stl_jogador}</td> 
-    <td id="blk" class="stats">${blk_jogador}</td>`
+    `<td id="Nome${tentativas}" class="nome">${nome_jogador}</td>
+    <td id="Team${tentativas}" class="stats">${time_jogador}</td>
+    <td id="age${tentativas}" class="stats">${idade_jogador}</td>
+    <td id="pos${tentativas}" class="stats">${posicao_jogador}</td>
+    <td id="points${tentativas}" class="stats">${ppg_jogador}</td>
+    <td id="assists${tentativas}" class="stats">${ast_jogador}</td> 
+    <td id="rebounds${tentativas}" class="stats">${reb_jogador}</td> 
+    <td id="fg${tentativas}" class="stats">${fg_jogador}</td> 
+    <td id="3p${tentativas}" class="stats">${tres_p_jogador}</td> 
+    <td id="ft${tentativas}" class="stats">${ft_jogador}</td> 
+    <td id="stl${tentativas}" class="stats">${stl_jogador}</td> 
+    <td id="blk${tentativas}" class="stats">${blk_jogador}</td>`
 
 }
 
@@ -129,12 +130,22 @@ async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogad
     barraPesquisa.value = '' 
     criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
     resposta = escolhido.id
-    if (id_jogador == resposta ||  tentativas == 7)
+    if (id_jogador == resposta)
     {
+        darDicas(true)
+        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'green'
+    }
+    else if (tentativas == 8)
+    {
+        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'red'
         darDicas(true)
     }
     else
     {
+        if (escolhido.Team == time_jogador)
+        {
+            document.getElementById(`Team${tentativas}`).style.backgroundColor = 'green'
+        }
         tentativas++
         darDicas()
     }  
