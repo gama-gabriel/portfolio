@@ -6,7 +6,7 @@ async function selResposta(onGoing = false)
 {
     const n = jogadorAleatorio(1,468)
 
-    const resposta = await fetch("http://127.0.0.1:5500/players.json")
+    const resposta = await fetch("https://gama-gabriel.github.io/players_list/")
     const dados = await resposta.json()
     if (onGoing == false)
     {
@@ -100,7 +100,7 @@ async function buscar()
     itensBuscados = 0
     const busca = barraPesquisa.value.toLowerCase()
 
-    const resposta = await fetch("http://127.0.0.1:5500/players.json")
+    const resposta = await fetch("https://gama-gabriel.github.io/players_list/")
     const dados = await resposta.json()
 
     resultados.innerHTML = ''
