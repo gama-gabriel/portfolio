@@ -73,11 +73,9 @@ async function darDicas(terminou=false)
 
 function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
 {
-    const newRow = document.createElement('tr');
-    tabela = document.getElementById('resp1')
-    linha = document.getElementById('linha')
+    const tabela = document.getElementById('resp1')
+    const newRow = tabela.insertRow(tentativas - 1)
     newRow.setAttribute('id', `linha${tentativas}`)
-    tabela.insertBefore(newRow, linha.parentNode)
     newRow.innerHTML = 
     `<td id="Nome${tentativas}" class="nome">${nome_jogador}</td>
     <td id="Team${tentativas}" class="stats">${time_jogador}</td>

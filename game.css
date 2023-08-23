@@ -111,7 +111,3 @@ body
     display: table-cell;
     animation: fade-in 1s ease-in-out;
 }
-#linha
-{
-    visibility: visible;
-}
