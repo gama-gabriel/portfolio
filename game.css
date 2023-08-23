@@ -93,14 +93,14 @@ table
 .definicoes
 {
     background-color: rgb(99, 0, 112);
-    border: solid 1px black;
     color: white;
-    font-weight: 400;
+    border: solid 1px black;
 }
 .respostas
 {
     display:table;
     margin: auto;
+    font-weight: 700;
     animation: fade-in 1s ease-in-out;
 }
 .respostas tr
