@@ -69,6 +69,10 @@ body
     
 }
 
+table
+{
+    border-collapse: collapse;
+}
 .nome
 {
     align-items: center;
