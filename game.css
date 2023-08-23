@@ -34,9 +34,6 @@ body img
 .pesquisa
 {
     justify-content: center;
-    background-color: rgba(221, 88, 214, 0.25);
-    border: solid 2px rgb(221, 88, 214);
-    color: rgb(253, 242, 210);
 }
 
 #resultados
@@ -76,10 +73,10 @@ body img
     height: 50px;
     margin: 0;
     padding: 0;
-    border: solid 1px;
-    padding-inline-start: 5px;
-    border-radius: 0px;
-    
+    background-color: rgba(221, 88, 214, 0.25);
+    border: solid 2px rgb(221, 88, 214);
+    color: rgb(253, 242, 210);
+    padding-inline-start: 5px;  
 }
 
 table
