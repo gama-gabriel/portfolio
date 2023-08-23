@@ -128,6 +128,7 @@ table td
 {
     background-color: rgb(99, 0, 112);
     color: white;
+    border-top: solid 2px rgb(37, 7, 36);
 }
 .respostas
 {
