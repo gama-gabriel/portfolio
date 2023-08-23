@@ -51,8 +51,7 @@ body img
 {   
     justify-items: center;
     text-align: center;
-    width: 300px;
-    max-width: 300px;
+    width: 296px;
     height: auto;
     padding-inline-start: 0px;
     margin: 0;
@@ -99,6 +98,7 @@ body img
 table
 {
     border-collapse: collapse;
+    font-size: 15pt;
 }
 .nome
 {
