@@ -28,10 +28,7 @@ body
     justify-content: center;
     
 }
-table
-{
-    border-collapse: separate;
-}
+
 #resultados
 {
     display: flex;
@@ -116,5 +113,5 @@ table
 }
 #linha
 {
-    visibility: collapse;
+    visibility: visible;
 }
