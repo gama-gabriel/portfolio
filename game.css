@@ -98,7 +98,8 @@ body img
 table
 {
     border-collapse: collapse;
-    font-size: 15pt;
+    font-size: 10pt;
+    padding: 8px
 }
 .nome
 {
