@@ -76,7 +76,25 @@ body img
     background-color: rgba(221, 88, 214, 0.25);
     border: solid 2px rgb(221, 88, 214);
     color: rgb(253, 242, 210);
+    
     padding-inline-start: 5px;  
+}
+#busca:focus
+{
+    border: solid 2px rgb(221, 88, 214);
+}
+::placeholder 
+{ 
+    color: rgba(253, 242, 210, 0.5);
+    opacity: 1; /* Firefox */
+}  
+:-ms-input-placeholder 
+{
+    color: rgba(253, 242, 210, 0.5);
+}
+::-ms-input-placeholder 
+{ 
+    color: rgba(253, 242, 210, 0.5);
 }
 
 table
