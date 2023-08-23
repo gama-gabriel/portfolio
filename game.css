@@ -51,7 +51,7 @@ body img
 {   
     justify-items: center;
     text-align: center;
-    width: 296px;
+    width: 281px;
     height: auto;
     padding-inline-start: 0px;
     margin: 0;
@@ -75,6 +75,7 @@ body img
     background-color: rgba(221, 88, 214, 0.25);
     border: solid 2px rgb(221, 88, 214);
     color: rgb(253, 242, 210);
+    font-size: 12pt;
 }
 #busca:focus
 {
