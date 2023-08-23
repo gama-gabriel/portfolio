@@ -100,13 +100,18 @@ table
 {
     border-collapse: collapse;
     font-size: 10pt;
-    padding: 8px
+    padding: 8px;
+}
+table td 
+{
+    border-bottom: solid 2px rgb(37, 7, 36);
+    border-left: solid 2px rgb(37, 7, 36);
+    border-right: solid 2px rgb(37, 7, 36);
 }
 .nome
 {
     align-items: center;
     justify-content: center;
-    border: solid 1px;
     width: 150px;
     height: 40px;
     margin: 0px;
@@ -115,7 +120,6 @@ table
 {
     align-items: center;
     justify-content: center;
-    border: solid 1px;
     width: 60px;
     height: 40px;
     margin: 0px;
@@ -124,23 +128,17 @@ table
 {
     background-color: rgb(99, 0, 112);
     color: white;
-    border: solid 1px black;
 }
 .respostas
 {
-    display:table;
     margin: auto;
     font-weight: 700;
     animation: fade-in 1s ease-in-out;
 }
-.respostas tr
-{
-    display: table-row;
-}
+
 .respostas td 
 {
     align-items: center;
     justify-content: center;
-    display: table-cell;
     animation: fade-in 1s ease-in-out;
 }
