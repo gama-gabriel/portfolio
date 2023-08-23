@@ -18,7 +18,13 @@ body
     margin: 0px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(64, 18, 169);
+    background-color: rgb(64, 18, 139);
+}
+body img 
+{
+    width: 200px;
+    height: 50px;
+    margin: 20px;
 }
 .SubTítulo
 {
