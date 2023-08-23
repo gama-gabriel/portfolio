@@ -82,6 +82,7 @@ body img
 #busca:focus
 {
     border: solid 2px rgb(221, 88, 214);
+    outline: none;
 }
 ::placeholder 
 { 
