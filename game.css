@@ -19,6 +19,7 @@ body
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(64, 18, 139);
+    color: rgb(255, 231, 155);
 }
 body img 
 {
@@ -33,7 +34,9 @@ body img
 .pesquisa
 {
     justify-content: center;
-    
+    background-color: rgba(221, 88, 214, 0.25);
+    border: solid 2px rgb(221, 88, 214);
+    color: rgb(253, 242, 210);
 }
 
 #resultados
@@ -57,11 +60,14 @@ body img
     padding-inline-start: 0px;
     margin: 0;
     padding-block: 5px;
-    border-bottom: solid 1px rgb(172, 172, 172);
+    border-bottom: solid 2px rgb(221, 88, 214);
+    border-right: solid 2px rgb(221, 88, 214);
+    border-left: solid 2px rgb(221, 88, 214);
 }
 #resultados li:hover
 {
-    background-color: rgb(219, 219, 219);
+    background-color: rgba(221, 88, 214, 0.25);
+    color: rgb (253, 242, 210);
     cursor: pointer;
 }
 #busca
