@@ -30,7 +30,7 @@ body img
 .SubTítulo
 {
     font-weight: 700;
-    margin-block: 20px;
+    padding-block: 25px;
 }
 .pesquisa
 {
@@ -143,4 +143,8 @@ table td
     align-items: center;
     justify-content: center;
     animation: fade-in 1s ease-in-out;
+}
+#resp1
+{
+    padding-bottom: 30px;
 }
