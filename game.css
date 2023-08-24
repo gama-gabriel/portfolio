@@ -148,3 +148,13 @@ table td
 {
     margin-bottom: 30px;
 }
+footer
+{
+    margin: 20px;
+    align-items: center;
+    font-size: 8pt;
+}
+footer a
+{
+    outline: none;
+}
