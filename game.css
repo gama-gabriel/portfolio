@@ -30,6 +30,7 @@ body img
 .SubTítulo
 {
     font-weight: 700;
+    padding-block: 20px;
 }
 .pesquisa
 {
@@ -39,9 +40,9 @@ body img
 #resultados
 {
     display: flex;
-    flex-direction: column; /* Display list items vertically */
-    align-items: center; /* Center list items horizontally */
-    height: 170px; /* Set height to 100% of the viewport height */
+    flex-direction: column;
+    align-items: center; 
+    height: 280px; 
     list-style: none;
     margin: 0;
     padding: 0;
