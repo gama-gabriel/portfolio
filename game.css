@@ -173,7 +173,12 @@ footer a
     padding-block: 20px;
     padding-inline: 5px;
     border: solid 3px rgb(221, 88, 214);
+    color: rgb(255, 231, 155);
+    font-weight: 700;
+    font-size: 14pt;
     border-radius: 30px;
+    align-items: center;
+    justify-content: center;
 }
 #replay:hover
 {
