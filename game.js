@@ -6,6 +6,8 @@ async function selResposta(onGoing = false)
 {
     const n = jogadorAleatorio(1,468)
 
+    replay = false
+
     const resposta = await fetch("https://gama-gabriel.github.io/players_list/")
     const dados = await resposta.json()
     if (onGoing == false)
@@ -36,10 +38,11 @@ async function darDicas(terminou=false)
         T_posicao.innerText = escolhido.POS 
         T_assistencias.innerText = escolhido.APG
         T_rebotes.innerText = escolhido.RPG
-
         T_ft.innerText = escolhido["FT%"]
         T_stl.innerText = escolhido.SPG 
         T_blk.innerText  = escolhido.BPG
+        document.getElementById('replay').style.visibility = "visible"
+
     }
     else if (tentativas == 2)
     {
@@ -131,18 +134,18 @@ async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogad
     if (id_jogador == resposta)
     {
         darDicas(true)
-        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'green'
+        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(165, 250, 151)'
     }
     else if (tentativas == 8)
     {
-        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'red'
+        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(255, 165, 165)'
         darDicas(true)
     }
     else
     {
         if (escolhido.Team == time_jogador)
         {
-            document.getElementById(`Team${tentativas}`).style.backgroundColor = 'green'
+            document.getElementById(`Team${tentativas}`).style.backgroundColor = 'rgb(165, 250, 151)'
         }
         tentativas++
         darDicas()
@@ -180,6 +183,27 @@ const barraPesquisa = document.getElementById('busca')
 const resultados = document.getElementById('resultados')
 let itensBuscados = 0
 let tentativas = 1
+
+async function reiniciar()
+{
+    document.getElementById('resp1').innerHTML = ''
+    await selResposta()
+    tentativas = 1 
+    document.getElementById('tips').innerHTML = 
+    `<td id="T_Nome" class="nome"></td>
+    <td id="T_Team" class="stats"></td>
+    <td id="T_age" class="stats"></td>
+    <td id="T_pos" class="stats"></td>
+    <td id="T_points" class="stats"></td>
+    <td id="T_assists" class="stats"></td> 
+    <td id="T_rebounds" class="stats"></td> 
+    <td id="T_fg" class="stats"></td> 
+    <td id="T_3p" class="stats"></td> 
+    <td id="T_ft" class="stats"></td> 
+    <td id="T_stl" class="stats"></td> 
+    <td id="T_blk" class="stats"></td> `
+    document.getElementById('tips').style.animation = 'animation: fade-in 1s ease-in-out'
+}
 
 barraPesquisa.addEventListener('input', buscar)
 

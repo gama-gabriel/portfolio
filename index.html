@@ -10,11 +10,13 @@
     <img src="resources/statsio.png" alt="Stats.io">
 </header>
 <body onload="selResposta()">
-
+    
+    <dialog open=""
     <div class="pesquisa">
         <input type="search" name="busca" id="busca" placeholder="Type a nba player name..." autocomplete="off"><br>
         <ul id="resultados"></ul>
     </div>
+    
     <p class="SubTítulo">Which player averaged these stats during the 2023 regular season?</p>
     <table class="respostas">
         <tr class="definicoes">
@@ -49,7 +51,7 @@
     <table class="respostas" id="resp1">
         
     </table>
-    <button id="replay">Play again</button>
+    <button id="replay" onclick="reiniciar()">Play again</button>
     <footer>Made by: Gabriel Gama. <a href="https://github.com/gama-gabriel" target="_blank">GitHub profile</a>
     </footer>
 </body>
