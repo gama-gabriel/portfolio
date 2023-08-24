@@ -204,6 +204,10 @@ async function reiniciar()
     <td id="T_blk" class="stats"></td> `
     document.getElementById('tips').style.animation = 'animation: fade-in 1s ease-in-out'
 }
+function abrirHelp()
+{
+    document.getElementById('help').showModal()
 
+}
 barraPesquisa.addEventListener('input', buscar)
 

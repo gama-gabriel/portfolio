@@ -11,7 +11,11 @@
 </header>
 <body onload="selResposta()">
     
-    <dialog open=""
+    <dialog id="help">
+        <h1>How to Play</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur doloribus suscipit quaerat nobis inventore, debitis ut nesciunt sit nisi? Modi quae quas ipsam alias vel velit similique? Unde, sapiente recusandae.</p>
+    </dialog>
+
     <div class="pesquisa">
         <input type="search" name="busca" id="busca" placeholder="Type a nba player name..." autocomplete="off"><br>
         <ul id="resultados"></ul>
@@ -52,6 +56,8 @@
         
     </table>
     <button id="replay" onclick="reiniciar()">Play again</button>
+    <button onclick="abrirHelp">aqui</button>
+
     <footer>Made by: Gabriel Gama. <a href="https://github.com/gama-gabriel" target="_blank">GitHub profile</a>
     </footer>
 </body>
