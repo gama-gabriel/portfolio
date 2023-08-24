@@ -128,7 +128,7 @@ table td
 .definicoes
 {
     background-color: rgb(99, 0, 112);
-    color: white;
+    color: rgb(255, 231, 155);
     border-top: solid 2px rgb(37, 7, 36);
 }
 .respostas
@@ -157,4 +157,5 @@ footer
 footer a
 {
     outline: none;
+    color: rgb(255, 231, 155);
 }
