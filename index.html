@@ -10,19 +10,14 @@
     <img src="resources/statsio.png" alt="Stats.io">
 </header>
 <body onload="selResposta()">
-    
-    <dialog id="help">
-        <h1>How to Play</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur doloribus suscipit quaerat nobis inventore, debitis ut nesciunt sit nisi? Modi quae quas ipsam alias vel velit similique? Unde, sapiente recusandae.</p>
-    </dialog>
-
     <div class="pesquisa">
-        <input type="search" name="busca" id="busca" placeholder="Type a nba player name..." autocomplete="off"><br>
+        <input type="search" name="busca" id="busca" placeholder="Guess 1 of 8" autocomplete="off"><br>
         <ul id="resultados"></ul>
     </div>
     
     <p class="SubTítulo">Which player averaged these stats during the 2023 regular season?</p>
-    <table class="respostas">
+    <p id="abrirHelp" onclick="abrirHelp()">How to play</p>
+    <table class="respostas" id="tabela">
         <tr class="definicoes">
             <td class="nome">Player name</td>
             <td class="stats">Team</td>
@@ -56,10 +51,48 @@
         
     </table>
     <button id="replay" onclick="reiniciar()">Play again</button>
-    <button onclick="abrirHelp">aqui</button>
 
     <footer>Made by: Gabriel Gama. <a href="https://github.com/gama-gabriel" target="_blank">GitHub profile</a>
     </footer>
+
+    <dialog id="help">
+        <h1>How to Play</h1>
+        <p>Guess which player averaged the stats highlighted in yellow. You'll have 8 attempts!</p>
+        <table class="respostas" id="tabela">
+            <tr id="tips">
+                <td id="T_Nome" class="nome"></td>
+                <td id="T_Team" class="stats"></td>
+                <td id="T_age" class="stats"></td>
+                <td id="T_pos" class="stats"></td>
+                <td id="T_points" class="stats">33.08</td>
+                <td id="T_assists" class="stats"></td> 
+                <td id="T_rebounds" class="stats"></td> 
+                <td id="T_fg" class="stats">54.8</td> 
+                <td id="T_3p" class="stats">33.0</td> 
+                <td id="T_ft" class="stats">85.7</td> 
+                <td id="T_stl" class="stats"></td> 
+                <td id="T_blk" class="stats"></td> 
+            </tr>
+        </table>
+        <p>With every wrong attempt you have, another stat will be revealed.</p>
+        <p>The only other tip you might have is the player's team. It'll be highlighted in green if you got it right.</p>
+        <table class="respostas" id="resp1">
+            <td id="Nome" class="nome"></td>
+            <td id="Team" class="stats">PHI</td>
+            <td id="age" class="stats"></td>
+            <td id="pos" class="stats"></td>
+            <td id="points$" class="stats"></td>
+            <td id="assists" class="stats"></td> 
+            <td id="rebounds" class="stats"></td> 
+            <td id="fg" class="stats"></td> 
+            <td id="3p" class="stats"></td> 
+            <td id="ft" class="stats"></td> 
+            <td id="stl" class="stats"></td> 
+            <td id="blk" class="stats"></td>
+        </table>
+        <p class="reminder">*Player needs to have played at least 100 minutes to qualify</p>
+        <button id="close" onclick="fecharHelp()"> Got it!</button>
+    </dialog>
 </body>
 <script src="game.js"></script>
 </html>

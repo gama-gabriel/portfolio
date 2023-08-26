@@ -5,13 +5,13 @@
     from 
     {
         opacity: 0;
-
     }
     to 
     {
         opacity: 1;
     }
 }
+
 
 body
 {
@@ -30,7 +30,8 @@ body img
 .SubTítulo
 {
     font-weight: 700;
-    padding-block: 25px;
+    padding-block: 20px;
+    margin-block: 0px;
 }
 .pesquisa
 {
@@ -42,7 +43,7 @@ body img
     display: flex;
     flex-direction: column;
     align-items: center; 
-    height: 220px; 
+    height: 200px; 
     list-style: none;
     margin: 0;
     padding: 0;
@@ -186,4 +187,84 @@ footer a
 {
     background-color: rgba(221, 88, 214, 1);
     cursor: pointer;
+}
+#help
+{
+    animation: fade-in .3s ease-in-out;
+    width: 880px;
+    height: fit-content;    
+    background-color: rgb(64, 18, 139);
+    border-radius: 40px;
+    border: 0px;
+    color: rgb(255, 231, 155);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    justify-items: center;
+}
+#help p
+{
+    margin: 30px;
+}
+#help .reminder
+{
+    font-size: 8pt;
+}
+dialog::backdrop
+{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#help #tabela
+{
+    scale: .8;
+    border: solid 2px rgb(37, 7, 36);   
+}
+#help #resp1
+{
+    scale: .8;
+    border: solid 2px rgb(37, 7, 36);
+    outline: none;
+}
+#help #resp1 #Team
+{
+    background-color: rgb(165, 250, 151);
+}
+#help #close
+{
+    background-color: rgba(221, 88, 214, 0.25);
+    width: 180px;
+    padding-block: 10px;
+    padding-inline: 5px;
+    border: solid 3px rgb(221, 88, 214);
+    color: rgb(255, 231, 155);
+    font-weight: 700;
+    font-size: 12pt;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 21px;
+    outline: none;
+}
+#help #close:hover
+{
+    background-color: rgba(221, 88, 214, 1);
+    cursor: pointer;
+}
+
+#abrirHelp
+{
+    text-decoration: underline;
+    font-size: 10pt;
+    padding-bottom: 20px;
+    outline: none;
+    height: 20px;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
+    color: rgb(255, 231, 155); 
+    font-weight: 700;
+    margin: auto;
+}
+#abrirHelp:hover
+{
+    cursor: pointer;
+    font-size: 11pt;
 }

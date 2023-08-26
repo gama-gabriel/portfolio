@@ -42,6 +42,7 @@ async function darDicas(terminou=false)
         T_stl.innerText = escolhido.SPG 
         T_blk.innerText  = escolhido.BPG
         document.getElementById('replay').style.visibility = "visible"
+        barraPesquisa.disabled = true
 
     }
     else if (tentativas == 2)
@@ -135,11 +136,13 @@ async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogad
     {
         darDicas(true)
         document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(165, 250, 151)'
+        barraPesquisa.placeholder = 'Congratulations!'
     }
     else if (tentativas == 8)
     {
         document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(255, 165, 165)'
         darDicas(true)
+        barraPesquisa.placeholder = "You'll get it next time!"
     }
     else
     {
@@ -148,6 +151,7 @@ async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogad
             document.getElementById(`Team${tentativas}`).style.backgroundColor = 'rgb(165, 250, 151)'
         }
         tentativas++
+        barraPesquisa.placeholder = `Guess ${tentativas} of 8`
         darDicas()
     }  
     
@@ -187,27 +191,35 @@ let tentativas = 1
 async function reiniciar()
 {
     document.getElementById('resp1').innerHTML = ''
-    await selResposta()
+    T_nome.innerText = ''
+    T_time.innerText = ''
+    T_idade.innerText = ''
+    T_posicao.innerText = ''
+    T_pontos.innerText = ''
+    T_assistencias.innerText = ''
+    T_rebotes.innerText = ''
+    T_fg.innerText = ''
+    T_tres_p.innerText = ''
+    T_ft.innerText = ''
+    T_stl.innerText = ''
+    T_blk.innerText = ''
+    await selResposta(false)
     tentativas = 1 
-    document.getElementById('tips').innerHTML = 
-    `<td id="T_Nome" class="nome"></td>
-    <td id="T_Team" class="stats"></td>
-    <td id="T_age" class="stats"></td>
-    <td id="T_pos" class="stats"></td>
-    <td id="T_points" class="stats"></td>
-    <td id="T_assists" class="stats"></td> 
-    <td id="T_rebounds" class="stats"></td> 
-    <td id="T_fg" class="stats"></td> 
-    <td id="T_3p" class="stats"></td> 
-    <td id="T_ft" class="stats"></td> 
-    <td id="T_stl" class="stats"></td> 
-    <td id="T_blk" class="stats"></td> `
-    document.getElementById('tips').style.animation = 'animation: fade-in 1s ease-in-out'
+    barraPesquisa.placeholder = 'Guess 1 of 8'
+    document.getElementById('replay').style.visibility = "hidden"
+    barraPesquisa.disabled = false
 }
 function abrirHelp()
 {
-    document.getElementById('help').showModal()
+    const help = document.querySelector('dialog')
+    help.showModal()
 
 }
+function fecharHelp()
+{
+    const help = document.querySelector('dialog')
+    document.querySelector('dialog').close()
+}
+
 barraPesquisa.addEventListener('input', buscar)
 
