@@ -91,7 +91,14 @@
             <td id="blk" class="stats"></td>
         </table>
         <p class="reminder">*Player needs to have played at least 100 minutes to qualify</p>
-        <button id="close" onclick="fecharHelp()"> Got it!</button>
+        <button class="close" onclick="fecharHelp()"> Got it!</button>
+    </dialog>
+    <dialog id="terminou">
+        <button class="fec" onclick="fecharResp()">X</button> <br>
+        <p id="parabens">S/N</p>
+        <img id="img_resposta" src="" alt="unable to load player image">
+        <p id="texto_resposta">S/N</p>
+        <button class="close" onclick="reiniciar()">Play again</button>
     </dialog>
 </body>
 <script src="game.js"></script>
