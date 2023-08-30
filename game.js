@@ -8,6 +8,9 @@ async function selResposta(onGoing = false)
 
     replay = false
 
+    const img_resposta = await fetch("https://gama-gabriel.github.io/players_list2/")
+    const img_dados = await img_resposta.json()
+
     const resposta = await fetch("https://gama-gabriel.github.io/players_list/")
     const dados = await resposta.json()
     if (onGoing == false)
@@ -23,6 +26,16 @@ async function selResposta(onGoing = false)
         T_fg.innerText = escolhido["FG%"]
         T_tres_p.innerText = escolhido["3P%"]
         T_ft.innerText = escolhido["FT%"]
+        document.getElementById('texto_resposta').innerText = `The answer was: ${escolhido.PName}`
+
+        img_dados.forEach(item =>
+        {
+            if (item.id == n)
+            {
+                img_escolhido = item.img_url
+            }
+        })
+        document.getElementById('img_resposta').setAttribute('src', img_escolhido)  
     }
 
 }
@@ -43,7 +56,7 @@ async function darDicas(terminou=false)
         T_blk.innerText  = escolhido.BPG
         document.getElementById('replay').style.visibility = "visible"
         barraPesquisa.disabled = true
-
+        document.getElementById('terminou').showModal()
     }
     else if (tentativas == 2)
     {
@@ -127,21 +140,25 @@ async function buscar()
 
 async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador) 
 {
-
+    let mensagem = document.getElementById('parabens')
     resultados.innerHTML = ''
     barraPesquisa.value = '' 
     criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador)
     resposta = escolhido.id
     if (id_jogador == resposta)
     {
+        mensagem.innerText = `Congratulations! You guessed the right player in ${tentativas} atttempts!`
+        mensagem.style.color = 'rgb(165, 250, 151)'
         darDicas(true)
         document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(165, 250, 151)'
         barraPesquisa.placeholder = 'Congratulations!'
     }
     else if (tentativas == 8)
     {
-        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(255, 165, 165)'
+        mensagem.innerText = `Almost! You'll get it next time.`
+        mensagem.style.color = 'rgb(255, 165, 165)'
         darDicas(true)
+        document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(255, 165, 165)'
         barraPesquisa.placeholder = "You'll get it next time!"
     }
     else
@@ -182,6 +199,7 @@ let T_ft = document.getElementById('T_ft')
 let T_stl = document.getElementById('T_stl')
 let T_blk = document.getElementById('T_blk')
 let escolhido = []
+let img_escolhido = ''
 
 const barraPesquisa = document.getElementById('busca')
 const resultados = document.getElementById('resultados')
@@ -208,17 +226,21 @@ async function reiniciar()
     barraPesquisa.placeholder = 'Guess 1 of 8'
     document.getElementById('replay').style.visibility = "hidden"
     barraPesquisa.disabled = false
+    document.getElementById('terminou').close()
 }
 function abrirHelp()
 {
-    const help = document.querySelector('dialog')
+    const help = document.getElementById('help')
     help.showModal()
 
 }
 function fecharHelp()
 {
-    const help = document.querySelector('dialog')
-    document.querySelector('dialog').close()
+    document.getElementById('help').close()
+}
+function fecharResp()
+{
+    document.getElementById('terminou').close()
 }
 
 barraPesquisa.addEventListener('input', buscar)

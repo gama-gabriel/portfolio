@@ -227,7 +227,7 @@ dialog::backdrop
 {
     background-color: rgb(165, 250, 151);
 }
-#help #close
+.close
 {
     background-color: rgba(221, 88, 214, 0.25);
     width: 180px;
@@ -243,7 +243,7 @@ dialog::backdrop
     margin-bottom: 21px;
     outline: none;
 }
-#help #close:hover
+.close:hover
 {
     background-color: rgba(221, 88, 214, 1);
     cursor: pointer;
@@ -267,4 +267,51 @@ dialog::backdrop
 {
     cursor: pointer;
     font-size: 11pt;
+}
+
+#terminou
+{
+    animation: fade-in .3s ease-in-out;
+    width: 450px;
+    height: fit-content;    
+    background-color: rgb(64, 18, 139);
+    border-radius: 40px;
+    border: 0px;
+    color: rgb(255, 231, 155);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    justify-items: center;
+}
+#terminou p
+{
+    font-weight: 700;
+    font-size: 16pt;
+    margin: 20px;
+}
+#parabens
+{
+    padding-top: 18px;
+}
+.fec 
+{
+    float: right;
+    margin: 15px;
+    outline: none;
+    color: rgb(255, 231, 155);
+    font-weight: 700;
+    font-size: 12pt;
+    background-color: transparent;
+    height: 20px;
+    font-weight: 700;
+    border: 0px;
+}
+.fec:hover
+{
+    cursor: pointer;
+    font-size: 13pt;
+}
+#img_resposta
+{
+    width: 325px;
+    height: 237.5px;
+    margin: 10px;
 }
