@@ -7,12 +7,15 @@ async function selResposta(onGoing = false)
     const n = jogadorAleatorio(1,468)
 
     replay = false
-
+    
     const img_resposta = await fetch("https://nba-players-api-alpha.vercel.app/player_images")
     const img_dados = await img_resposta.json()
 
     const resposta = await fetch("https://nba-players-api-alpha.vercel.app/players")
     const dados = await resposta.json()
+    
+    all_players = dados
+
     if (onGoing == false)
     {
         dados.forEach(item => 
@@ -115,12 +118,10 @@ async function buscar()
     itensBuscados = 0
     const busca = barraPesquisa.value.toLowerCase()
 
-    const resposta = await fetch("https://gama-gabriel.github.io/players_list/")
-    const dados = await resposta.json()
 
     resultados.innerHTML = ''
 
-    const igualarDados = dados.filter(item =>
+    const igualarDados = all_players.filter(item =>
         item.PName.toLowerCase().includes(busca)
         )
 
@@ -147,7 +148,7 @@ async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogad
     resposta = escolhido.id
     if (id_jogador == resposta)
     {
-        mensagem.innerText = `Congratulations! You guessed the right player in ${tentativas} atttempts!`
+        mensagem.innerText = `Congratulations! You guessed the right player in ${tentativas} atttempt(s)!`
         mensagem.style.color = 'rgb(165, 250, 151)'
         darDicas(true)
         document.getElementById(`linha${tentativas}`).style.backgroundColor = 'rgb(165, 250, 151)'
@@ -200,6 +201,7 @@ let T_stl = document.getElementById('T_stl')
 let T_blk = document.getElementById('T_blk')
 let escolhido = []
 let img_escolhido = ''
+let all_players = []
 
 const barraPesquisa = document.getElementById('busca')
 const resultados = document.getElementById('resultados')
@@ -208,25 +210,7 @@ let tentativas = 1
 
 async function reiniciar()
 {
-    document.getElementById('resp1').innerHTML = ''
-    T_nome.innerText = ''
-    T_time.innerText = ''
-    T_idade.innerText = ''
-    T_posicao.innerText = ''
-    T_pontos.innerText = ''
-    T_assistencias.innerText = ''
-    T_rebotes.innerText = ''
-    T_fg.innerText = ''
-    T_tres_p.innerText = ''
-    T_ft.innerText = ''
-    T_stl.innerText = ''
-    T_blk.innerText = ''
-    await selResposta(false)
-    tentativas = 1 
-    barraPesquisa.placeholder = 'Guess 1 of 8'
-    document.getElementById('replay').style.visibility = "hidden"
-    barraPesquisa.disabled = false
-    document.getElementById('terminou').close()
+    window.location.reload()
 }
 function abrirHelp()
 {
