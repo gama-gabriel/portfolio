@@ -8,10 +8,10 @@ async function selResposta(onGoing = false)
 
     replay = false
 
-    const img_resposta = await fetch("https://gama-gabriel.github.io/players_list2/")
+    const img_resposta = await fetch("https://nba-players-api-alpha.vercel.app/player_images")
     const img_dados = await img_resposta.json()
 
-    const resposta = await fetch("https://gama-gabriel.github.io/players_list/")
+    const resposta = await fetch("https://nba-players-api-alpha.vercel.app/players")
     const dados = await resposta.json()
     if (onGoing == false)
     {
