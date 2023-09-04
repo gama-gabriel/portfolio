@@ -8,6 +8,11 @@ async function selResposta(onGoing = false)
 
     replay = false
     
+    const time_img_resp = await fetch("https://nba-players-api-alpha.vercel.app/teams")
+    const dados_time = await time_img_resp.json()
+    time_img = dados_time
+
+
     const img_resposta = await fetch("https://nba-players-api-alpha.vercel.app/player_images")
     const img_dados = await img_resposta.json()
 
@@ -45,11 +50,27 @@ async function selResposta(onGoing = false)
 
 async function darDicas(terminou=false)
 {
+    time_img.forEach(item =>
+        {
+            if (item.TName == 'PHI')
+            {
+                document.getElementById('Team_tip').setAttribute('src', item.team_img)
+            }
+        }
+        )
 
     if (terminou == true || tentativas > 8)
     {
         T_nome.innerText = escolhido.PName
-        T_time.innerText = escolhido.Team
+        time_img.forEach(item =>
+            {
+                if (escolhido.Team == item.TName)
+                {
+                    T_time.innerHTML=`<td id="T_Team" class="time">
+                    <img src="${item.team_img}" alt=""> <br>
+                    ${escolhido.Team}</td>` 
+                }
+            })
         T_idade.innerText = escolhido.Age
         T_posicao.innerText = escolhido.POS 
         T_assistencias.innerText = escolhido.APG
@@ -75,7 +96,15 @@ async function darDicas(terminou=false)
     }
     else if (tentativas == 5)
     {
-        T_time.innerText = escolhido.Team
+        time_img.forEach(item =>
+            {
+                if (escolhido.Team == item.TName)
+                {
+                    T_time.innerHTML=`<td id="T_Team" class="time">
+                    <img src="${item.team_img}" alt=""> <br>
+                    ${escolhido.Team}</td>` 
+                }
+            })
     }
     else if (tentativas == 6)
     {
@@ -98,7 +127,8 @@ function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador,
     newRow.setAttribute('id', `linha${tentativas}`)
     newRow.innerHTML = 
     `<td id="Nome${tentativas}" class="nome">${nome_jogador}</td>
-    <td id="Team${tentativas}" class="stats">${time_jogador}</td>
+    <td id="Team${tentativas}" class="time">
+    <img id="team_tip${tentativas}" src="" alt=""><br>${time_jogador}</td>
     <td id="age${tentativas}" class="stats">${idade_jogador}</td>
     <td id="pos${tentativas}" class="stats">${posicao_jogador}</td>
     <td id="points${tentativas}" class="stats">${ppg_jogador}</td>
@@ -109,12 +139,19 @@ function criar_linha(nome_jogador, time_jogador, idade_jogador, posicao_jogador,
     <td id="ft${tentativas}" class="stats">${ft_jogador}</td> 
     <td id="stl${tentativas}" class="stats">${stl_jogador}</td> 
     <td id="blk${tentativas}" class="stats">${blk_jogador}</td>`
+    time_img.forEach(item =>
+        {
+            if (time_jogador == item.TName)
+            {
+                document.getElementById(`team_tip${tentativas}`).src = item.team_img
+            }
+        })
 
 }
 
 async function buscar()
 {
-    await selResposta(true)
+    
     itensBuscados = 0
     const busca = barraPesquisa.value.toLowerCase()
 
@@ -136,7 +173,7 @@ async function buscar()
             itensBuscados++
         }
       })
-    return dados
+
 }
 
 async function selecionarJog(id_jogador, nome_jogador, time_jogador, idade_jogador, posicao_jogador, ppg_jogador, ast_jogador, reb_jogador, fg_jogador, tres_p_jogador, ft_jogador, stl_jogador, blk_jogador) 
@@ -202,6 +239,7 @@ let T_blk = document.getElementById('T_blk')
 let escolhido = []
 let img_escolhido = ''
 let all_players = []
+let time_img = []
 
 const barraPesquisa = document.getElementById('busca')
 const resultados = document.getElementById('resultados')
