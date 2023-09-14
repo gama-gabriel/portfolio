@@ -1,0 +1,154 @@
+@keyframes load
+{
+    0%
+    {
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+
+.footer
+{
+  width: fit-content;
+  margin: auto;
+}
+#busca
+{
+    width: 285px;
+    height: 55px;
+    margin: 0;
+    padding: 5px;
+    background-color: rgba(221, 88, 214, 0.25);
+    border: solid 2px rgb(221, 88, 214);
+    color: rgb(253, 242, 210);
+    font-size: 12pt;
+    outline: none;
+}
+#busca:focus
+{
+    border: solid 3px rgb(221, 88, 214);
+    outline: none;
+}
+#busca::placeholder 
+{ 
+    color: rgba(253, 242, 210, 0.5);
+    opacity: 1; /* Firefox */
+}
+#resultados
+{
+    display: flex;
+    flex-direction: column;
+    height: 200px; 
+    width: fit-content;
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    overflow: auto;   
+
+}
+#resultados::-webkit-scrollbar
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 10px;
+}
+#resultados::-webkit-scrollbar-thumb
+{
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+#resultados li
+{   
+    text-align: center;
+    width: 271px;
+    height: 20px;
+    padding-inline-start: 0px;
+    margin: 0;
+    padding-block: 5px;
+    border-bottom: solid 2px rgb(221, 88, 214);
+}
+
+#resultados li:hover
+{
+    background-color: rgba(221, 88, 214, 0.25);
+    color: rgb (253, 242, 210);
+    cursor: pointer;
+}
+
+#tabela 
+{
+    border-collapse: collapse;
+    font-size: 10pt;
+    padding: 8px;
+    animation: load 1.5s ease-in-out;
+}
+
+#tabela td 
+{
+    border-bottom: solid 2px rgb(37, 7, 36);
+    border-left: solid 2px rgb(37, 7, 36);
+    border-right: solid 2px rgb(37, 7, 36);
+    min-width: 50px;
+}
+.nome
+{
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    height: 50px;
+    margin: 0px;
+}
+.stats
+{
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+    margin: 0px;
+    padding-block: 5px;
+}
+.time
+{
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+    margin: 0px;
+    padding-block: 5px;
+}
+.time img
+{
+    width: 35px;
+    height: 35px;
+    margin: 0px;
+    font-size: 10pt;
+}
+#tabela th
+{
+    background-color: rgb(99, 0, 112);
+    color: rgb(255, 231, 155);
+    border: solid 2px rgb(37, 7, 36);
+    height: 40px;
+}
+#tips
+{
+    background-color: rgb(237,221,78);
+    color: rgb(37, 7, 36);
+}
+.respostas
+{
+    margin: auto;
+    font-weight: 700;
+    animation: fade-in 1.8s ease-in-out;
+}
