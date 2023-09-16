@@ -62,10 +62,10 @@ export default async function Home()
   async function escolher()
   {
     "use server"
-    const n = Math.floor(Math.random() * (468 - 1 + 1)) + 1
+    const n = Math.floor(Math.random() * (468)) + 1
     console.log(n)
     const allPlayers = await loadData()
-    const escolhido = allPlayers.find((jogador) => jogador.id === n)
+    const escolhido = allPlayers.find((jogador: any) => jogador.id === n)
     return(escolhido)
   }
 

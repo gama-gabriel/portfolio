@@ -22,7 +22,7 @@ export default function Tabela({ lista, tentativa, terminou}: any)
                 <th >STL</th> 
             </tr>   
             <tr id={styles.tips}>
-                <td id={styles.T_Nome} className={styles.nome}></td>
+                <td id={styles.T_Nome} className={styles.nome}>{(tentativa > 8 || terminou)? lista.PName:''}</td>
                 <td id={styles.T_points} className={styles.stats}>{lista.PPG}</td>
                 <td id={styles.T_fg} className={styles.stats}>{lista[`FG%`]}</td> 
                 <td id={styles.T_3p} className={styles.stats}>{lista[`3P%`]}</td>

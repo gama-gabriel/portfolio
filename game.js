@@ -23,6 +23,14 @@ async function selResposta(onGoing = false)
 
     if (onGoing == false)
     {
+        time_img.forEach(item =>
+            {
+                if (item.TName == 'PHI')
+                {
+                    document.getElementById('Team_tip').setAttribute('src', item.team_img)
+                }
+            }
+            )
         dados.forEach(item => 
         {
             if (item.id == n)
@@ -50,15 +58,7 @@ async function selResposta(onGoing = false)
 
 async function darDicas(terminou=false)
 {
-    time_img.forEach(item =>
-        {
-            if (item.TName == 'PHI')
-            {
-                document.getElementById('Team_tip').setAttribute('src', item.team_img)
-            }
-        }
-        )
-
+    
     if (terminou == true || tentativas > 8)
     {
         T_nome.innerText = escolhido.PName
