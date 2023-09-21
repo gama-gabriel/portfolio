@@ -9,7 +9,7 @@ body
   min-height: 100vh;
   margin: 0px;
   align-items: center;
-  
+  text-align: center;  
 
 }
 .fullbody
@@ -24,6 +24,6 @@ body
 }
 p
 {
-  display: flex;
+
   height: min-content
 }

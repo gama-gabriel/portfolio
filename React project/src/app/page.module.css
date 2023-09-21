@@ -13,6 +13,17 @@
         opacity: 1;
     }
 }
+@keyframes fade-in 
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
 
 
 .footer
@@ -90,6 +101,7 @@
     font-size: 10pt;
     padding: 8px;
     animation: load 1.5s ease-in-out;
+    margin: auto;
 }
 
 #tabela td 
@@ -118,6 +130,20 @@
     margin: 0px;
     padding-block: 5px;
 }
+.teams
+{
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+    margin: 0px;
+    padding-block: 5px;
+}
+.teams img
+{
+    height: 40px;
+    width: 40px;
+}
 .time
 {
     align-items: center;
@@ -145,10 +171,116 @@
 {
     background-color: rgb(237,221,78);
     color: rgb(37, 7, 36);
+    font-weight: 700;
 }
-.respostas
+.respostas td
 {
     margin: auto;
     font-weight: 700;
-    animation: fade-in 1.8s ease-in-out;
+    color: rgb(37, 7, 36);
+    border-bottom: solid 2px rgb(37, 7, 36);
+    border-left: solid 2px rgb(37, 7, 36);
+    border-right: solid 2px rgb(37, 7, 36);
+    
+}
+.respostas
+{
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    margin: auto;
+    font-size: 10pt;
+    
+}
+
+.respostas .nome
+{
+    background-color: #fdf2d2;
+}
+
+.respostas .stats
+{
+    background-color: #fdf2d2;
+}
+.respostas .teams
+{
+    background-color: #fdf2d2;
+}
+.respostas .acertou 
+{
+    background-color: #a5fa97;
+}
+.fade_in
+{
+    animation: fade-in .8s ease-in-out;
+}
+#help
+{
+    animation: fade-in .5s ease-in-out;
+    width: 880px;
+    height: fit-content;    
+    background-color: rgb(64, 18, 139);
+    border-radius: 20px;
+    border: 0px;
+    color: rgb(255, 231, 155);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    justify-items: center;
+    align-items: center;
+    outline: none;
+}
+#help #tabela
+{
+    scale: 0.9;
+}
+
+
+
+/* CSS */
+.button {
+    outline: none;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button:hover,
+.button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button:hover 
+{
+  transform: translateY(-0.5px);
+}
+
+.button:active 
+{
+  background-color: #aaaaac;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }

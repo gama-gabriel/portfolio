@@ -1,11 +1,12 @@
 import styles from '../page.module.css'
 
-export default function Tabela({ lista, tentativa, terminou}: any)
+export default function Tabela({ lista, tentativa, terminou, img_times, dica}: any)
 {
+    
     
     return(
         <div>
-        <table className={styles.respostas} id={styles.tabela}>
+        <table  id={styles.tabela}>
         <tbody>
             <tr className={styles.definicoes}>
                 <th >Player name</th>
@@ -30,7 +31,11 @@ export default function Tabela({ lista, tentativa, terminou}: any)
                 <td id={styles.T_rebounds} className={styles.stats}>{(tentativa >= 2 || terminou)? lista.RPG:''}</td> 
                 <td id={styles.T_assists} className={styles.stats}>{(tentativa >= 3 || terminou)? lista.APG:''}</td>
                 <td id={styles.T_pos} className={styles.stats}>{(tentativa >= 4 || terminou)? lista.POS : ''}</td>
-                <td id={styles.T_Team} className={styles.time}>{(tentativa >= 5 || terminou)? lista.Team:''}</td>
+                <td id={styles.T_Team} className={styles.teams}>
+                    {(tentativa >= 5 || terminou)&& (
+                    <>
+                    <img src={img_times.find((time: any) => time.TName === lista.Team).team_img} alt="Team"/>  {lista.Team}</>)}
+                </td>
                 <td id={styles.T_age} className={styles.stats}>{(tentativa >= 6 || terminou)? lista.Age:''}</td>
                 <td id={styles.T_blk} className={styles.stats}>{(tentativa >= 7 || terminou)? lista.BPG:''}</td>
                 <td id={styles.T_stl} className={styles.stats}>{(tentativa >= 8 || terminou)? lista.SPG:''}</td>  

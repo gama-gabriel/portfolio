@@ -1,10 +1,8 @@
-
-import Image from 'next/image'
 import styles from './page.module.css'
 import { GetStaticProps } from 'next';
 import ItensLista from '../../components/itensLista'
-import axios from 'axios'
 import Busca from './components/busca';
+
 
 type Player = 
 {
@@ -31,10 +29,21 @@ type HomeProps =
 async function loadData(): Promise<any>
 {
   const resposta = await fetch("https://nba-players-api-alpha.vercel.app/players")
-  const dados = await resposta.json()
+  const players = await resposta.json()
 
+  const resp_igm_times = await fetch("https://nba-players-api-alpha.vercel.app/teams")
+  const img_times = await resp_igm_times.json()
 
-  return  dados 
+  const resp_player_imgs = await fetch("https://nba-players-api-alpha.vercel.app/player_images/")
+  const player_imgs = await resp_player_imgs.json()
+
+  const data = 
+  {
+    players: players,
+    img_times: img_times,
+    player_imgs: player_imgs
+  }
+  return data 
 }
   
 
@@ -42,7 +51,7 @@ async function loadData(): Promise<any>
 
 export default async function Home() 
 {
-  const allPlayers = await loadData()
+  const data = await loadData()
 
   const exemplo = [{PName: "Paul George", id: 1}, {PName: "Terrance Mann", id: 2}]
 
@@ -64,19 +73,21 @@ export default async function Home()
     "use server"
     const n = Math.floor(Math.random() * (468)) + 1
     console.log(n)
-    const allPlayers = await loadData()
-    const escolhido = allPlayers.find((jogador: any) => jogador.id === n)
-    return(escolhido)
+    const data = await loadData()
+    const escolhido = data.players.find((jogador: any) => jogador.id === n)
+    return escolhido
   }
 
 
   return (
     <>
     <div className='fullbody'>
-    
       <p>Hello World</p>
-      <Busca lista={allPlayers} resposta={await escolher()}></Busca>
-      </div>
+      <Busca lista={data.players} resposta={await escolher()} img_times={data.img_times} player_images={data.player_imgs}></Busca>
+
+      
+      
+    </div>
 
     <footer className={styles.footer}>made by: Gabriel Gama</footer>  
     </>
